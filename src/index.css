@@ -17,3 +17,24 @@
     color: black;
     font-size: 1rem;
 }
+input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+    background-color: wheat;
+    border-radius: 5px;
+}
+.image-with-alt[alt="img-not-found"] {
+    background-image: url('/public/imgnotfound.png');
+    background-size: cover;
+    background-position: center;
+}
+.primaryBtn{
+    /* background-color: #7c3aed; */
+    color: black;
+    border: 1px solid blue;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 1.1rem;
+}
+.primaryBtn:hover{
+    background-color: #580bdb;
+    color: white;
+}

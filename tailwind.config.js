@@ -8,8 +8,11 @@ export default {
     extend: {
       fontFamily: {
         'logoFont': ['Electrolize', 'serif'],
-        'textFont': ['Roboto', 'serif'],
+        'roboto': ['Roboto', 'serif'],
       },
+      backgroundImage: {
+        'add-food-bg': "url('/src/assets/bg-2.jpg')",
+      }
     }
   },
   plugins: [
