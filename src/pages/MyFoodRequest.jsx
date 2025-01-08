@@ -7,7 +7,7 @@ import useAxiosSecure from "../components/useAxiosSecure";
 
 const MyFoodRequest = () => {
     const { user } = useContext(authContext)
-    const axiosSecure=useAxiosSecure()
+    const axiosSecure = useAxiosSecure()
 
     const [myFoodRequest, setMyFoodRequest] = useState([])
 
@@ -18,8 +18,8 @@ const MyFoodRequest = () => {
         //     .then(res => setMyFoodRequest(res.data))
 
         axiosSecure.get(`/food-request?email=${user.email}`)
-        .then(res=>setMyFoodRequest(res.data))
-
+            .then(res => setMyFoodRequest(res.data))
+            
     }, [user.email])
 
     return (

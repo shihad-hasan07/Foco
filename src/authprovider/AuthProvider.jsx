@@ -44,7 +44,7 @@ const AuthProvider = ({ allRoutes }) => {
 
     // logout all user
     const logOut = () => {
-        signOut(auth)
+        return signOut(auth)
     }
 
     useEffect(() => {
