@@ -1,16 +1,20 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import { authContext } from '../authprovider/AuthProvider';
 import { FaEdit } from "react-icons/fa";
 import { MdDeleteForever } from "react-icons/md";
 import { toast } from 'react-toastify';
 import Swal from 'sweetalert2';
+import axios from 'axios';
 
 const ManageMyFoods = () => {
     const { user } = useContext(authContext)
-    const data = useLoaderData()
-    const userBasedFoodMange = data.filter(e => e?.Donator?.Email === user?.email)
-    const [manageFoods, setManageFoods] = useState(userBasedFoodMange)
+    const [manageFoods, setManageFoods] = useState([])
+
+    useEffect(()=>{
+        axios.get(`http://localhost:5500/all-foods?email=${user.email}`)
+        .then(res=>setManageFoods(res.data))
+    },[])
 
     const handleFoodDelete = (id) => {
 
@@ -42,8 +46,6 @@ const ManageMyFoods = () => {
             }
         });
     }
-
-
 
     function formatDate(dateTimeString) {
         const dateObject = new Date(dateTimeString);

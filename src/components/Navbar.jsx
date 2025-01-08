@@ -68,7 +68,7 @@ const Navbar = () => {
                                 <MdOutlinePersonAddAlt1 /> Sign up</button></Link>
 
                             <Link to='/login'><button className="flex items-center gap-1 px-6 py-3 font-semibold rounded dark:bg-violet-600 dark:text-gray-50">
-                                <IoLogInOutline />Log in</button></Link>
+                                <IoLogInOutline />Log in </button></Link>
                         </div>
                         :
                         <div className="items-center flex-shrink-0 flex group">
