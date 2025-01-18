@@ -55,9 +55,11 @@ const AuthProvider = ({ allRoutes }) => {
 
             // jwt token related work
             if (currentuser?.email) {
+                console.log('user added')
                 const users = { email: currentuser.email }
 
-                axios.post('http://localhost:5500/jwt', users, {
+                axios.post('https://back-end-part-a11.vercel.app/jwt', users, {
+                // axios.post('http://localhost:5500/jwt', users, {
                     withCredentials: true
                 })
                     .then(res => {
@@ -66,7 +68,8 @@ const AuthProvider = ({ allRoutes }) => {
                     })
             }
             else {
-                axios.post('http://localhost:5500/logout', {}, {
+                axios.post('https://back-end-part-a11.vercel.app/logout', {}, {
+                // axios.post('http://localhost:5500/logout', {}, {
                     withCredentials: true
                 })
                     .then(res => {

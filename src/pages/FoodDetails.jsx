@@ -39,7 +39,7 @@ const FoodDetails = () => {
         document.getElementById('my_modal_1').showModal()
 
         // 2. delete form available
-        fetch(`http://localhost:5500/food/${id}`, {
+        fetch(`https://back-end-part-a11.vercel.app/food/${id}`, {
             method: 'DELETE'
         })
     }
@@ -54,7 +54,7 @@ const FoodDetails = () => {
     // 4. onclick request form modal=>...  add to myfoodrequest
     const handleSubmit = (e) => {
         e.preventDefault()
-        fetch('http://localhost:5500/food-request', {
+        fetch('https://back-end-part-a11.vercel.app/food-request', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

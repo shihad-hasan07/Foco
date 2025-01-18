@@ -25,7 +25,7 @@ const UpdateFood = () => {
             AdditionalNotes, Donator: { Name, Email, Image }, FoodStatus: formData.FoodStatus
         }
 
-        fetch(`http://localhost:5500/update-food/${formData._id}`, {
+        fetch(`https://back-end-part-a11.vercel.app/update-food/${formData._id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

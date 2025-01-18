@@ -6,17 +6,19 @@ import { MdDeleteForever } from "react-icons/md";
 import { toast } from 'react-toastify';
 import Swal from 'sweetalert2';
 import axios from 'axios';
-import useAxiosSecure from '../components/useAxiosSecure';
 
 const ManageMyFoods = () => {
     const { user } = useContext(authContext)
-    const axiosSecure = useAxiosSecure()
 
     const [manageFoods, setManageFoods] = useState([])
 
     useEffect(() => {
-        axiosSecure.get(`/all-foods?email=${user.email}`)
+        axios.get(`https://back-end-part-a11.vercel.app/manage-all-foods?email=${user.email}`,{
+        // axios.get(`http://localhost:5500/manage-all-foods?email=${user.email}`,{
+            withCredentials:true
+        })
             .then(res => setManageFoods(res.data))
+            .catch(err=>console.log(err))
 
     }, [])
 
@@ -32,7 +34,7 @@ const ManageMyFoods = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5500/food/${id}`, {
+                fetch(`https://back-end-part-a11.vercel.app/food/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

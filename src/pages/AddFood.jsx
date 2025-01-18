@@ -40,7 +40,7 @@ const AddFood = () => {
         e.preventDefault();
 
         console.log(formData);
-        fetch('http://localhost:5500/add-foods', {
+        fetch('https://back-end-part-a11.vercel.app/add-foods', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

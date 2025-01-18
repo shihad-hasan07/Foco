@@ -26,7 +26,7 @@ const router = createBrowserRouter([
             {
                 path: '/available-foods',
                 element: <AvailableFoods></AvailableFoods>,
-                loader: () => fetch('http://localhost:5500/all-foods')
+                loader: () => fetch('https://back-end-part-a11.vercel.app/all-foods')
             },
             {
                 path: '/add-food',
@@ -55,13 +55,13 @@ const router = createBrowserRouter([
                 path: "/food/:id",
                 element: <PrivateRoute>
                     <FoodDetails></FoodDetails></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5500/food/${params.id}`)
+                loader: ({ params }) => fetch(`https://back-end-part-a11.vercel.app/food/${params.id}`)
             },
             {
                 path: `/update-food/:id`,
                 element: <PrivateRoute>
                     <UpdateFood></UpdateFood></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5500/food/${params.id}`)
+                loader: ({ params }) => fetch(`https://back-end-part-a11.vercel.app/food/${params.id}`)
             }
         ]
     }
