@@ -2,31 +2,35 @@
 @tailwind components;
 @tailwind utilities;
 
-.active{
+.active {
     color: white;
     font-size: 1.1rem;
     padding: 0px;
     text-decoration: underline;
     text-decoration-color: blue;
-    text-decoration-thickness: 2px; 
+    text-decoration-thickness: 2px;
     text-underline-offset: 10px;
     font-weight: 700;
-    transition: transform 0.3s ease, color 0.3s ease,font-size 0.5s ease ; 
+    transition: transform 0.3s ease, color 0.3s ease, font-size 0.5s ease;
 }
-.notActive{
+
+.notActive {
     color: black;
     font-size: 1rem;
 }
+
 input[type="datetime-local"]::-webkit-calendar-picker-indicator {
     background-color: wheat;
     border-radius: 5px;
 }
+
 .image-with-alt[alt="img-not-found"] {
     background-image: url('/public/imgnotfound.png');
     background-size: cover;
     background-position: center;
 }
-.primaryBtn{
+
+.primaryBtn {
     /* background-color: #7c3aed; */
     color: black;
     border: 1px solid blue;
@@ -34,7 +38,51 @@ input[type="datetime-local"]::-webkit-calendar-picker-indicator {
     border-radius: 6px;
     font-size: 1.1rem;
 }
-.primaryBtn:hover{
+
+.primaryBtn:hover {
     background-color: #580bdb;
     color: white;
 }
+
+/* sort btn css start */
+.sortBTn {
+    padding: 0.8em 1.8em;
+    border: 2px solid #17C3B2;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    background-color: transparent;
+    text-align: center;
+    /* text-transform: uppercase; */
+    font-size: 18px;
+    transition: .3s;
+    z-index: 1;
+    font-family: inherit;
+    color: #000000;
+    font-weight: 500;
+}
+
+
+.sortBTn::before {
+    content: '';
+    width: 0;
+    height: 300%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    background: #17C3B2;
+    transition: .5s ease;
+    display: block;
+    z-index: -1;
+}
+
+.sortBTn:hover::before {
+    width: 105%;
+}
+
+.sortBTn:hover {
+    color: #ffffff;
+}
+
+/* sort btn css end */

@@ -3,9 +3,9 @@ import { Link, useLoaderData } from 'react-router-dom';
 import { authContext } from '../authprovider/AuthProvider';
 import { FaEdit } from "react-icons/fa";
 import { MdDeleteForever } from "react-icons/md";
-import { toast } from 'react-toastify';
 import Swal from 'sweetalert2';
 import axios from 'axios';
+import formatDate from '../components/dateformat/formatDate'
 
 const ManageMyFoods = () => {
     const { user } = useContext(authContext)
@@ -53,19 +53,6 @@ const ManageMyFoods = () => {
         });
     }
 
-    function formatDate(dateTimeString) {
-        const dateObject = new Date(dateTimeString);
-
-        const day = dateObject.getDate();
-        const month = dateObject.toLocaleString('default', { month: 'short' });
-        const year = dateObject.getFullYear();
-        let hours = dateObject.getHours();
-        const minutes = dateObject.getMinutes().toString().padStart(2, '0');
-        const ampm = hours >= 12 ? 'PM' : 'AM';
-        hours = hours % 12 || 12;
-
-        return `${day} ${month} ${year} ${hours}.${minutes} ${ampm}`;
-    }
 
     return (
         <div>
