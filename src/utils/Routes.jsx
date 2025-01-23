@@ -10,24 +10,25 @@ import Register from "../pages/Register";
 import PrivateRoute from "../privateRoute/PrivateRoute";
 import FoodDetails from "../pages/FoodDetails";
 import UpdateFood from "../pages/UpdateFood";
-import axios from "axios";
 import Errorpage from "../pages/Errorpage";
 
 const router = createBrowserRouter([
     {
         path: '/',
         element: <Layout></Layout>,
-        errorElement:<Errorpage></Errorpage>,
+        errorElement: <Errorpage></Errorpage>,
         children: [
             {
                 path: '/',
                 element: <Home></Home>,
                 loader: () => fetch('https://back-end-part-a11.vercel.app/all-foods')
+                // loader: () => fetch('http://localhost:5500/all-foods')
             },
             {
                 path: '/available-foods',
                 element: <AvailableFoods></AvailableFoods>,
                 loader: () => fetch('https://back-end-part-a11.vercel.app/all-foods')
+                // loader: () => fetch('http://localhost:5500/all-foods')
             },
             {
                 path: '/add-food',

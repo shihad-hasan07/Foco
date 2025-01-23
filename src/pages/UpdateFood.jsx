@@ -45,7 +45,7 @@ const UpdateFood = () => {
         <div className="relative bg-add-food-bg bg-no-repeat bg-cover min-h-[750px]">
             <div className="absolute inset-0 bg-black bg-opacity-60">
                 <div className="relative z-20 text-white">
-                    <p className="text-3xl text-center my-10 font-logoFont">Add food to your online shop . . .</p>
+                    <p className="text-3xl text-center my-10 font-logoFont">Update the food</p>
 
                     <div className="container mx-auto text-center">
                         <form onSubmit={handleUpdate}>
@@ -61,7 +61,7 @@ const UpdateFood = () => {
                             </div>
 
                             <div className="mb-6">
-                                <input type="number" name="FoodQuantity" placeholder="Quantity" defaultValue={formData.FoodQuantity} required
+                                <input type="number" name="FoodQuantity" placeholder="Quantity" min="1"  defaultValue={formData.FoodQuantity} required
                                     className="py-3 border px-9 rounded bg-black" />
                             </div>
 

@@ -25,8 +25,6 @@ const AvailableFoods = () => {
                 <p className='text-3xl font-semibold'>Available food</p>
 
                 <div className='flex gap-5'>
-
-                    {/* serach btn */}
                     <div className="p-5 overflow-hidden w-[60px] h-[60px] hover:w-[270px] bg-[#17c3b2] shadow-[2px_2px_20px_rgba(0,0,0,0.08)] rounded-full flex group items-center hover:duration-300 duration-200">
                         <div className="flex items-center justify-center fill-white">
                             <svg xmlns="http://www.w3.org/2000/svg" id="Isolation_Mode" data-name="Isolation Mode" viewBox="0 0 24 24" width={22} height={22}>
@@ -35,16 +33,12 @@ const AvailableFoods = () => {
                         </div>
                         <input type="text" className="outline-none text-[20px] bg-transparent w-full text-white font-normal px-4" onChange={(e) => setSearchItem(e.target.value)} />
                     </div>
-
-                    {/* sort btn */}
                     <button onClick={sorted} className='sortBTn'>Sort by date</button>
-
-                    {/* column toogle btn */}
-                    <button onClick={toogleColumn} className='hidden lg:flex items-center border px-6 rounded-xl border-[#17c3b2]'> <span className='text-2xl pr-6'>Change column</span> {column2 ? <TfiLayoutColumn3 size={32} /> : <TfiLayoutColumn2 size={32} />}</button>
+                    <button onClick={toogleColumn} className='hidden lg:flex items-center border px-6 rounded-xl border-[#17c3b2]'> <span className='text-2xl pr-6'>Change layout</span> {column2 ? <TfiLayoutColumn3 size={32} /> : <TfiLayoutColumn2 size={32} />}</button>
                 </div>
+
             </div>
 
-            {/* all available food  */}
             <div className={`container mx-auto grid grid-cols-1 sm:grid-cols-2 ${column2 ? "lg:grid-cols-2" : 'lg:grid-cols-3'} gap-10 px-5`}>
                 {
                     filterdItem.map(data => <Food food={data} key={data._id}></Food>)

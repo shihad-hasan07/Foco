@@ -100,43 +100,43 @@ const FoodDetails = () => {
                     </div>
 
                     {/* Open the modal using document.getElementById('ID').showModal() method */}
-                    <dialog id="my_modal_1" className="modal">
-                        <div className="modal-box">
+                    <dialog id="my_modal_1" className="modal ">
+                        <div className="modal-box bg-add-food-bg bg-no-repeat bg-cover">
                             <form method="dialog" onSubmit={handleSubmit}>
-                                <div className="container mx-auto text-center">
+                                <div className="container mx-auto text-center text-gray-500">
                                     <div className="mb-6">
-                                        <input type="text" name="FoodName" placeholder="Food Name" value={foodRequest.FoodName} readOnly
+                                        <input type="text" name="FoodName" placeholder="Food Name" value={foodRequest.FoodName} disabled
                                             className="py-3 border px-9 rounded bg-black" />
                                     </div>
 
                                     <div className="mb-6">
-                                        <input type="url" name="FoodImage" placeholder="Food Image URL" value={foodRequest.FoodImage} readOnly
+                                        <input type="url" name="FoodImage" placeholder="Food Image URL" value={foodRequest.FoodImage} disabled
                                             className="py-3 border px-9 rounded bg-black" />
                                     </div>
 
                                     <div className="mb-6">
-                                        <input type="number" name="FoodQuantity" placeholder="Quantity" value={foodRequest.FoodQuantity} readOnly
+                                        <input type="number" name="FoodQuantity" placeholder="Quantity" value={foodRequest.FoodQuantity} disabled
                                             className="py-3 border px-9 rounded bg-black" />
                                     </div>
 
                                     <div className="mb-6">
-                                        <input type="text" name="PickupLocation" placeholder="Pickup Location" value={foodRequest.PickupLocation} readOnly
+                                        <input type="text" name="PickupLocation" placeholder="Pickup Location" value={foodRequest.PickupLocation} disabled
                                             className="py-3 border px-9 rounded bg-black" />
                                     </div>
 
 
                                     <div className="mb-6">
-                                        <input type="datetime-local" name="ExpiredDateTime" value={foodRequest.ExpiredDateTime} readOnly
+                                        <input type="datetime-local" name="ExpiredDateTime" value={foodRequest.ExpiredDateTime} disabled
                                             className="py-3 border px-[19px] rounded bg-black" />
                                     </div>
 
                                     {/* demo requsted tiem */}
                                     <div className="mb-6">
-                                        <input type="" name="ExpiredDateTime" value={foodRequest.RequestDateTime} readOnly
+                                        <input type="" name="ExpiredDateTime" value={foodRequest.RequestDateTime} disabled
                                             className="py-3 border px-[19px] rounded bg-black" />
                                     </div>
 
-                                    <div className="mb-6">
+                                    <div className="mb-6 text-white">
                                         <input name="AdditionalNotes" placeholder="Additional Notes" value={foodRequest.AdditionalNotes} onChange={handleChange}
                                             className="py-3 border px-9 rounded bg-black" />
                                     </div>

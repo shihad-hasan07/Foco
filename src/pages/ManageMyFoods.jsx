@@ -13,17 +13,17 @@ const ManageMyFoods = () => {
     const [manageFoods, setManageFoods] = useState([])
 
     useEffect(() => {
-        axios.get(`https://back-end-part-a11.vercel.app/manage-all-foods?email=${user.email}`,{
-        // axios.get(`http://localhost:5500/manage-all-foods?email=${user.email}`,{
-            withCredentials:true
-        })
-            .then(res => setManageFoods(res.data))
-            .catch(err=>console.log(err))
-
-    }, [])
+        if (user.email) {
+            axios.get(`https://back-end-part-a11.vercel.app/manage-all-foods?email=${user.email}`,{
+            // axios.get(`http://localhost:5500/manage-all-foods?email=${user.email}`, {
+                withCredentials: true
+            })
+                .then(res => setManageFoods(res.data))
+                .catch(err => console.log(err))
+        }
+    }, [user?.email])
 
     const handleFoodDelete = (id) => {
-
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
@@ -57,8 +57,8 @@ const ManageMyFoods = () => {
     return (
         <div>
             Manage my food...update,delete... actions
-            <div className='container mx-auto border p-10'>
-                <table className=''>
+            <div className='container mx-auto border md:p-10'>
+                <table className='container mx-auto'>
                     <thead>
                         <tr className='text-center'>
                             <th style={{ border: '1px solid black', padding: '8px' }}>Sl. No.</th>

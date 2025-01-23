@@ -3,12 +3,14 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import SliderDetails from '../components/SliderDetails';
 // import FeaturedFoods from "../components/FeaturedFoods";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import slider1 from '../assets/orange.jpg'
 import slider2 from '../assets/guava.jpg'
 import slider3 from '../assets/lichi.jpg'
 import slider4 from '../assets/mango.jpg'
 import Food from "../components/Food";
+import OurImpact from "../components/OurImpact";
+import Aboutus from "../components/Aboutus";
 
 const Home = () => {
     const movie = useLoaderData();
@@ -28,7 +30,6 @@ const Home = () => {
     return (
         <>
             <div>
-
                 <Slider {...settings} className='mb-20'>
                     <SliderDetails name='Orange' details="The orange, also called sweet orange to distinguish it from the bitter orange (Citrus  aurantium), is the fruit of a tree in the family Rutaceae." img={slider1}></SliderDetails>
 
@@ -40,16 +41,25 @@ const Home = () => {
                 </Slider>
             </div>
 
+
             <div className="container mx-auto">
-                <p className="text-4xl mb-7">Featured foods</p>
-                <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8 px-5'>
+                <p className='flex flex-col gap-3 items-center text-5xl font-extrabold text-[#64ae24]'>
+                    Featured food <span className='border-2 border-[#64ae24] w-24'></span></p>
+
+                <div className='grid mt-10 grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8 px-5'>
                     {
                         featuredFoods?.map(feature => <Food key={feature._id} food={feature}></Food>)
                     }
                 </div>
+                <Link to='/available-foods'><button className="mt-8 ml-5 text-2xl font-semibold px-10 hover:bg-blue-500 hover:text-white py-3 border border-blue-500 rounded-md transition-all duration-200">Show all</button></Link>
+            </div>
 
-                {/* extra two section  */}
 
+            <div className="bg-[#f9f5e0] mt-20">
+                <OurImpact></OurImpact>
+            </div>
+            <div className="">
+                <Aboutus></Aboutus>
             </div>
         </>
     );

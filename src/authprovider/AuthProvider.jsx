@@ -51,11 +51,9 @@ const AuthProvider = ({ allRoutes }) => {
         const anyChanges = onAuthStateChanged(auth, currentuser => {
             currentuser ? setUser(currentuser) : setUser(null)
             setLoading(false)
-            console.log('currentuser', currentuser)
 
             // jwt token related work
             if (currentuser?.email) {
-                console.log('user added')
                 const users = { email: currentuser.email }
 
                 axios.post('https://back-end-part-a11.vercel.app/jwt', users, {
@@ -63,7 +61,7 @@ const AuthProvider = ({ allRoutes }) => {
                     withCredentials: true
                 })
                     .then(res => {
-                        console.log('login', res.data)
+                        console.log('set token', res.data)
                         setLoading(false)
                     })
             }
@@ -73,7 +71,7 @@ const AuthProvider = ({ allRoutes }) => {
                     withCredentials: true
                 })
                     .then(res => {
-                        console.log('logout', res.data)
+                        console.log('token delete with logout', res.data)
                         setLoading(false)
                     })
             }

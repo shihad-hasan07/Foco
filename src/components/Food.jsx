@@ -19,8 +19,8 @@ const Food = ({ food }) => {
                     <p className='flex items-center gap-1 mt-2'><MdOutlineProductionQuantityLimits size={15} />{FoodQuantity}</p>
                 </div>
                 <p className='flex items-center gap-1'><FaLocationDot size={13} />{PickupLocation}</p>
-                <p>{sortdate('', ExpiredDateTime)}</p>
-                <Link to={`/food/${_id}`}><button className='primaryBtn mt-3'>View Details</button></Link>
+                {/* <p>{sortdate('', ExpiredDateTime)}</p> */}
+                <Link to={`/food/${_id}`}><button className='px-8 py-3 text-lg font-semibold border border-blue-500 hover:bg-blue-500 hover:text-white rounded-lg transition-all duration-200 mt-3'>View Details</button></Link>
             </div>
         </div>
     );
