@@ -61,7 +61,6 @@ const AuthProvider = ({ allRoutes }) => {
                     withCredentials: true
                 })
                     .then(res => {
-                        console.log('set token', res.data)
                         setLoading(false)
                     })
             }
@@ -71,12 +70,9 @@ const AuthProvider = ({ allRoutes }) => {
                     withCredentials: true
                 })
                     .then(res => {
-                        console.log('token delete with logout', res.data)
                         setLoading(false)
                     })
             }
-
-
 
             return () => {
                 anyChanges()

@@ -50,7 +50,6 @@ const AddFood = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
                 if (data.insertedId) {
                     toast("Succesfully added to database")
                     navigate('/available-foods')
@@ -104,7 +103,7 @@ const AddFood = () => {
                             <div className="mb-6 flex justify-center">
                                 <div className="form__group field max-w-64 sm:max-w-80 md:max-w-96">
                                     <input type="datetime-local" name="ExpiredDateTime" value={formData.ExpiredDateTime} onChange={handleChange}
-                                        min={new Date().toISOString().slice(0, 16)}
+                                        // min={new Date().toISOString().slice(0, 16)}
                                         className="form__field" required />
                                     <label htmlFor="name" className="form__label">Expire Date-Time</label>
                                 </div>

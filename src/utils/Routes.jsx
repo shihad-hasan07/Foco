@@ -22,13 +22,11 @@ const router = createBrowserRouter([
                 path: '/',
                 element: <Home></Home>,
                 loader: () => fetch('https://back-end-part-a11.vercel.app/all-foods')
-                // loader: () => fetch('http://localhost:5500/all-foods')
             },
             {
                 path: '/available-foods',
                 element: <AvailableFoods></AvailableFoods>,
                 loader: () => fetch('https://back-end-part-a11.vercel.app/all-foods')
-                // loader: () => fetch('http://localhost:5500/all-foods')
             },
             {
                 path: '/add-food',

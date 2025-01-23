@@ -34,7 +34,6 @@ const UpdateFood = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
                 toast.success('succesfully updated')
                 navigate('/manage-my-foods')
             })

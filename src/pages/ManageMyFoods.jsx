@@ -14,8 +14,8 @@ const ManageMyFoods = () => {
 
     useEffect(() => {
         if (user.email) {
-            axios.get(`https://back-end-part-a11.vercel.app/manage-all-foods?email=${user.email}`,{
-            // axios.get(`http://localhost:5500/manage-all-foods?email=${user.email}`, {
+            axios.get(`https://back-end-part-a11.vercel.app/manage-all-foods?email=${user.email}`, {
+                // axios.get(`http://localhost:5500/manage-all-foods?email=${user.email}`, {
                 withCredentials: true
             })
                 .then(res => setManageFoods(res.data))
@@ -56,40 +56,60 @@ const ManageMyFoods = () => {
 
     return (
         <div>
-            Manage my food...update,delete... actions
-            <div className='container mx-auto border md:p-10'>
-                <table className='container mx-auto'>
-                    <thead>
-                        <tr className='text-center'>
-                            <th style={{ border: '1px solid black', padding: '8px' }}>Sl. No.</th>
-                            <th style={{ border: '1px solid black', padding: '8px' }}>Food name</th>
-                            <th style={{ border: '1px solid black', padding: '8px' }}>Quantity</th>
-                            <th style={{ border: '1px solid black', padding: '8px' }}>Expiry date</th>
-                            <th style={{ border: '1px solid black', padding: '8px' }}>FoodStatus</th>
-                            <th style={{ border: '1px solid black', padding: '8px' }}>Pickup Location</th>
-                            <th style={{ border: '1px solid black', padding: '8px' }}>Update</th>
-                            <th style={{ border: '1px solid black', padding: '8px' }}>Delete</th>
-                        </tr>
-                    </thead>
+            <p className='flex flex-col gap-3 mt-8 items-center text-4xl sm:text-5xl font-extrabold text-[#64ae24]'>
+                Manage food <span className='border-2 border-[#64ae24] mt-2 w-32'></span></p>
 
-                    <tbody className='text-center'>
-                        {
-                            manageFoods.map((item, index) => (
-                                <tr key={item._id}>
-                                    <td style={{ border: '1px solid black', padding: '8px' }}>{index + 1}</td>
-                                    <td style={{ border: '1px solid black', padding: '8px' }}>{item.FoodName}</td>
-                                    <td style={{ border: '1px solid black', padding: '8px' }}>{item.FoodQuantity}</td>
-                                    <td style={{ border: '1px solid black', padding: '8px' }}>{formatDate(item.ExpiredDateTime)}</td>
-                                    <td style={{ border: '1px solid black', padding: '8px' }}>{item.FoodStatus}</td>
-                                    <td style={{ border: '1px solid black', padding: '8px' }}>{item.PickupLocation}</td>
-                                    <td style={{ border: '1px solid black', padding: '8px' }}> <Link to={`/update-food/${item._id}`}><button> <FaEdit /> </button> </Link></td>
-                                    <td style={{ border: '1px solid black', padding: '8px' }}> <button onClick={() => handleFoodDelete(item._id)}> <MdDeleteForever /></button> </td>
+            {
+                manageFoods.length == 0
+                    ? <div className="my-14 text-center">
+                        <p className="text-3xl">You haven't added any food item yet...</p>
+                    </div>
+                    :
+                    <div className="container mx-auto  md:p-10 p-4 overflow-x-auto">
+                        <table className="w-full border-collapse border border-gray-200">
+                            <thead>
+                                <tr className="bg-gray-100 text-sm md:text-base">
+                                    <th className="border border-gray-300 p-2 md:p-4">Sl. No.</th>
+                                    <th className="border border-gray-300 p-2 md:p-4">Food Name</th>
+                                    <th className="border border-gray-300 p-2 md:p-4">Quantity</th>
+                                    <th className="border border-gray-300 p-2 md:p-4">Expiry Date</th>
+                                    <th className="border border-gray-300 p-2 md:p-4">Food Status</th>
+                                    <th className="border border-gray-300 p-2 md:p-4">Pickup Location</th>
+                                    <th className="border border-gray-300 p-2 md:p-4">Update</th>
+                                    <th className="border border-gray-300 p-2 md:p-4">Delete</th>
                                 </tr>
-                            ))
-                        }
-                    </tbody>
-                </table>
-            </div>
+                            </thead>
+                            <tbody className="text-sm md:text-base text-center">
+                                {manageFoods.map((item, index) => (
+                                    <tr key={item._id} className="hover:bg-gray-50">
+                                        <td className="border border-gray-300 p-2 md:p-4">{index + 1}</td>
+                                        <td className="border border-gray-300 p-2 md:p-4">{item.FoodName}</td>
+                                        <td className="border border-gray-300 p-2 md:p-4">{item.FoodQuantity}</td>
+                                        <td className="border border-gray-300 p-2 md:p-4">{formatDate(item.ExpiredDateTime)}</td>
+                                        <td className="border border-gray-300 p-2 md:p-4">{item.FoodStatus}</td>
+                                        <td className="border border-gray-300 p-2 md:p-4">{item.PickupLocation}</td>
+                                        <td className="border border-gray-300 p-2 md:p-4">
+                                            <Link to={`/update-food/${item._id}`}>
+                                                <button className="text-blue-500 hover:text-blue-700">
+                                                    <FaEdit />
+                                                </button>
+                                            </Link>
+                                        </td>
+                                        <td className="border border-gray-300 p-2 md:p-4">
+                                            <button
+                                                onClick={() => handleFoodDelete(item._id)}
+                                                className="text-red-500 hover:text-red-700"
+                                            >
+                                                <MdDeleteForever />
+                                            </button>
+                                        </td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+            }
+
         </div>
     );
 };

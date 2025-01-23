@@ -13,43 +13,52 @@ const MyFoodRequest = () => {
             withCredentials: true
         })
             .then(res => setMyFoodRequest(res.data))
-            .catch(err => console.log(err))
+            .catch()
     }, [user?.email])
 
     return (
-        <div className='container mx-auto p-10'>
-            <table className=''>
+        <>
+            <p className='flex flex-col gap-3 mt-8 items-center text-4xl sm:text-5xl font-extrabold text-[#64ae24]'>
+                My requested food <span className='border-2 border-[#64ae24] mt-2 w-32'></span></p>
+            {
+                myFoodRequest.length == 0
+                    ? <div className="my-14 text-center">
+                        <p className="text-3xl">You haven't requested any food item...</p>
+                    </div>
+                    :
+                    <div className="container mx-auto md:p-10 p-4 overflow-x-auto">
+                        <table className="w-full border-collapse border border-gray-200">
+                            <thead>
+                                <tr className="bg-gray-100 text-sm md:text-base text-center">
+                                    <th className="border border-gray-300 p-2 md:p-4">Sl. No.</th>
+                                    <th className="border border-gray-300 p-2 md:p-4">Food Name</th>
+                                    <th className="border border-gray-300 p-2 md:p-4">Quantity</th>
+                                    <th className="border border-gray-300 p-2 md:p-4">Donator</th>
+                                    <th className="border border-gray-300 p-2 md:p-4">Expiry Date</th>
+                                    <th className="border border-gray-300 p-2 md:p-4">Requested Date</th>
+                                    <th className="border border-gray-300 p-2 md:p-4">Food Status</th>
+                                    <th className="border border-gray-300 p-2 md:p-4">Pickup Location</th>
+                                </tr>
+                            </thead>
+                            <tbody className="text-sm md:text-base text-center">
+                                {myFoodRequest.map((item, index) => (
+                                    <tr key={index} className="hover:bg-gray-50">
+                                        <td className="border border-gray-300 p-2 md:p-4">{index + 1}</td>
+                                        <td className="border border-gray-300 p-2 md:p-4">{item.FoodName}</td>
+                                        <td className="border border-gray-300 p-2 md:p-4">{item.FoodQuantity}</td>
+                                        <td className="border border-gray-300 p-2 md:p-4">{item.Donator.Name}</td>
+                                        <td className="border border-gray-300 p-2 md:p-4">{formatDate(item.ExpiredDateTime)}</td>
+                                        <td className="border border-gray-300 p-2 md:p-4">{formatDate(item.RequestDateTime)}</td>
+                                        <td className="border border-gray-300 p-2 md:p-4">{item.FoodStatus}</td>
+                                        <td className="border border-gray-300 p-2 md:p-4">{item.PickupLocation}</td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
 
-                <thead>
-                    <tr className='text-center'>
-                        <th style={{ border: '1px solid black', padding: '8px' }}>Sl. No.</th>
-                        <th style={{ border: '1px solid black', padding: '8px' }}>Food name</th>
-                        <th style={{ border: '1px solid black', padding: '8px' }}>Quantity</th>
-                        <th style={{ border: '1px solid black', padding: '8px' }}>Expiry date</th>
-                        <th style={{ border: '1px solid black', padding: '8px' }}>Requested date</th>
-                        <th style={{ border: '1px solid black', padding: '8px' }}>FoodStatus</th>
-                        <th style={{ border: '1px solid black', padding: '8px' }}>Pickup Location</th>
-                    </tr>
-                </thead>
-
-                <tbody className='text-center'>
-                    {
-                        myFoodRequest.map((item, index) => (
-                            <tr key={index}>
-                                <td style={{ border: '1px solid black', padding: '8px' }}>{index + 1}</td>
-                                <td style={{ border: '1px solid black', padding: '8px' }}>{item.FoodName}</td>
-                                <td style={{ border: '1px solid black', padding: '8px' }}>{item.FoodQuantity}</td>
-                                <td style={{ border: '1px solid black', padding: '8px' }}>{formatDate(item.ExpiredDateTime)}</td>
-                                <td style={{ border: '1px solid black', padding: '8px' }}>{formatDate(item.RequestDateTime)}</td>
-                                <td style={{ border: '1px solid black', padding: '8px' }}>{item.FoodStatus}</td>
-                                <td style={{ border: '1px solid black', padding: '8px' }}>{item.PickupLocation}</td>
-                            </tr>
-                        ))
-                    }
-                </tbody>
-
-            </table>
-        </div>
+            }
+        </>
     );
 };
 

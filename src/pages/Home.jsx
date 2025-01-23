@@ -4,7 +4,7 @@ import "slick-carousel/slick/slick-theme.css";
 import SliderDetails from '../components/SliderDetails';
 // import FeaturedFoods from "../components/FeaturedFoods";
 import { Link, useLoaderData } from "react-router-dom";
-import slider1 from '../assets/orange.jpg'
+import slider1 from '../assets/rice.jpg'
 import slider2 from '../assets/guava.jpg'
 import slider3 from '../assets/lichi.jpg'
 import slider4 from '../assets/mango.jpg'
@@ -24,14 +24,15 @@ const Home = () => {
         slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 2000,
-        pauseOnHover: true
+        pauseOnHover: true,
+        arrows: false,  
     };
 
     return (
         <>
             <div>
                 <Slider {...settings} className='mb-20'>
-                    <SliderDetails name='Orange' details="The orange, also called sweet orange to distinguish it from the bitter orange (Citrus  aurantium), is the fruit of a tree in the family Rutaceae." img={slider1}></SliderDetails>
+                    <SliderDetails name='Biriyani' details="Biryani is a mixed rice dish popular in South Asia, made with rice, meat (chicken, goat, lamb, beef) or seafood (prawns or fish), and spices." img={slider1}></SliderDetails>
 
                     <SliderDetails name='Guava' details='Guava is a common tropical fruit cultivated in many tropical and subtropical regions. The common guava Psidium guajava is a small tree in the myrtle family (Myrtaceae), native to Mexico, Central America, the Caribbean and northern South America.' img={slider2}></SliderDetails>
 
