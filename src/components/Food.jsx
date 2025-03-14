@@ -11,7 +11,7 @@ const Food = ({ food }) => {
         <div>
             <div>
                 <img src={FoodImage} alt="img-not-found"
-                    className='w-full image-with-alt rounded-t-xl h-60 object-cover' />
+                    className='w-full border image-with-alt rounded-t-xl h-60 object-cover' />
             </div>
             <div className=' bg-slate-100 rounded-b-xl p-5'>
                 <div className='flex justify-between'>

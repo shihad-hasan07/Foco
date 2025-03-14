@@ -30,7 +30,7 @@ const Home = () => {
 
     return (
         <>
-            <div>
+            <div >
                 <Slider {...settings} className='mb-20'>
                     <SliderDetails name='Biriyani' details="Biryani is a mixed rice dish popular in South Asia, made with rice, meat (chicken, goat, lamb, beef) or seafood (prawns or fish), and spices." img={slider1}></SliderDetails>
 

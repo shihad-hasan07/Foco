@@ -8,7 +8,7 @@ import { authContext } from '../authprovider/AuthProvider';
 const Navbar = () => {
     const { user, logOut, loading } = useContext(authContext)
     return (
-        <header className="p-4 dark:bg-gray-100 dark:text-gray-800">
+        <header className="p-4 fixed top-0 w-full z-50 dark:bg-gray-100 dark:text-gray-800">
             <div className="container flex justify-between h-16 mx-auto">
                 <div className='flex items-center'>
                     <div className="dropdown dropdown-bottom">

@@ -5,8 +5,9 @@ import Footer from "../components/Footer";
 const Layout = () => {
     return (
         <>
-            <div className="flex flex-col min-h-screen">
-                <Navbar></Navbar>
+            <Navbar></Navbar>
+            {/* <div className="flex flex-col min-h-screen"> */}
+            <div className="flex flex-col min-h-screen mt-24">
 
                 {/* Main content area with flexible height */}
                 <div className="flex-grow ">

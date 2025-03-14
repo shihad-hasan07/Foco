@@ -20,7 +20,7 @@ const AvailableFoods = () => {
         setcolumn2(!column2)
     }
     return (
-        <div>
+        <div className='mb-12'>
             <div className='container my-10 mx-auto flex justify-between items-center'>
                 <p className='text-3xl font-semibold'>Available food</p>
 

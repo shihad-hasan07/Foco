@@ -74,7 +74,7 @@ const FoodDetails = () => {
 
 
     return (
-        <div className='container mx-auto px-5 md:px-20 lg:px-36 mt-16'>
+        <div className='container mb-12 mx-auto px-5 md:px-20 lg:px-36 mt-16'>
             <div className=''>
                 <div>
                     <img src={FoodImage} alt="img-not-found"
