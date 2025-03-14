@@ -9,7 +9,7 @@ const Layout = () => {
                 <Navbar></Navbar>
 
                 {/* Main content area with flexible height */}
-                <div className="flex-grow mb-16">
+                <div className="flex-grow ">
                     <Outlet></Outlet>
                 </div>
 

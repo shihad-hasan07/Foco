@@ -58,7 +58,7 @@ const AddFood = () => {
     };
 
     return (
-        <div className="relative bg-add-food-bg bg-no-repeat bg-cover min-h-[750px]">
+        <div className="relative bg-add-food-bg  bg-no-repeat bg-cover min-h-[780px]">
             <div className="absolute inset-0 bg-black bg-opacity-60">
                 <div className="relative z-20 text-white">
                     <p className="text-3xl text-center my-10 font-logoFont">Donate food for charity . . .</p>

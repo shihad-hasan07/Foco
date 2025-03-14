@@ -58,7 +58,7 @@ const Login = () => {
 
     return (
         <>
-            <div className='container mx-auto mt-12 flex items-center justify-center gap-14'>
+            <div className='container mx-auto pb-10 mt-12 flex items-center justify-center gap-14'>
                 {/* lottie animation */}
                 <div className='hidden lg:block w-[550px]'>
                     <Lottie animationData={signupLottie}></Lottie>
