@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "foody-cart-6c36f"
+    // "default": "foody-cart-6c36f"
+    "default": "foco"
   }
 }
