@@ -37,7 +37,7 @@ const Navbar = () => {
                         </ul>
                     </div>
                     <Link to='/' className="flex items-center p-2">
-                        <p className='font-logoFont text-5xl font-medium'>Foco</p>
+                        <p className='font-logoFont text-3xl lg:text-4xl font-medium'>Foco</p>
                     </Link>
 
                 </div>

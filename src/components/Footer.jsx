@@ -3,7 +3,7 @@ import logo from '../assets/logo.jpg'
 const Footer = () => {
     return (
         <div>
-            <footer className="footer bg-neutral flex justify-around text-neutral-content p-10">
+            <footer className="footer bg-neutral flex flex-col justify-around text-neutral-content p-10">
                 <aside className='flex items-center gap-3'>
                     <div className='w-16 h-16 rounded-full'>
                         <img src={logo} className='w-full h-full rounded-full' alt="" />
