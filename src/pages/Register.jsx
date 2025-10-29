@@ -59,7 +59,7 @@ const Register = () => {
                     <div className="heading">Create your account</div>
                     <form className="form" onSubmit={handleRegister}>
                         <input placeholder="Enter your name" name="name" type="text" className="input" required />
-                        <input placeholder="Profile-url" name="imgUrl" type="url" className="input" required />
+                        <input placeholder="Profile-url" name="imgUrl" type="url" className="input" />
                         <input placeholder="E-mail" name="email" type="email" className="input" required />
                         <input placeholder="Password" name="password" type="password" className="input" required />
                         <input placeholder="Confirm Password"  name="confirmPassword" type="password" className="input" required />
